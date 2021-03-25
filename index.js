@@ -29,7 +29,7 @@ let pets = [
         idade: 1,
         raca: 'Pitbull',
         peso: 2,
-        tutor: 'Adélia',
+        tutor: 'Bart',
         contato: '(81) 99999-9999',
         vacinado: false,
         servicos: 'banho'
@@ -46,5 +46,43 @@ const listarPets = () => {
     }
 }
 
-listarPets();
-// console.log(pets);
+const vacinarPet = (pet) => {
+    if (pet.vacinado == true) {
+        console.log(`${pet.nome} já está vacinado.`);
+    } else {
+        pet.vacinado = true;
+        console.log(`${pet.nome} foi vacinado com sucesso.`);
+    }
+}
+
+const campanhaVacina = () => {
+    numPets = 0;
+    for(let pet of pets) {
+        if (pet.vacinado === false) {
+            pet.vacinado = true;
+            numPets++;
+        }
+    }
+    console.log(`${numPets} pets foram vacinados nessa campanha!`);
+}
+
+const adicionarPet = (nomePet, tipoPet, idadePet, racaPet, pesoPet, tutorPet, contatoPet, vacinadoPet, 
+    servicosPet) => {
+    novoPet ={nomePet, tipoPet, idadePet, racaPet, pesoPet, tutorPet, contatoPet, vacinadoPet, 
+        servicosPet};
+    pets.push(novoPet);
+}
+
+darBanhoPet(pet)
+
+tosarPet(pet)
+
+apararUnhasPet(pet)
+
+
+
+adicionarPet('Garfield', 'gato', 5, 'SRD', '2', 'Jon Arbuckle', '11 93333-3333', true, '');
+console.log(pets);
+// campanhaVacina();
+// listarPets();
+// vacinarPet(pets[2]);
