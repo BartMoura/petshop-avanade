@@ -66,22 +66,30 @@ const campanhaVacina = () => {
     console.log(`${numPets} pets foram vacinados nessa campanha!`);
 }
 
-const adicionarPet = (nomePet, tipoPet, idadePet, racaPet, pesoPet, tutorPet, contatoPet, vacinadoPet, 
-    servicosPet) => {
-    novoPet ={nomePet, tipoPet, idadePet, racaPet, pesoPet, tutorPet, contatoPet, vacinadoPet, 
-        servicosPet};
+const adicionarPet = (nome, tipo, idade, raca, peso, tutor, contato, vacinado, servicos) => {
+    novoPet = {nome, tipo, idade, raca, peso, tutor, contato, vacinado, servicos};
     pets.push(novoPet);
 }
 
-darBanhoPet(pet)
+const darBanhoPet = (pet) => {
+    pet.servicos.push('banho');
+    console.log(`${pet.nome} está de banho tomado`)
+}
 
-tosarPet(pet)
+const tosarPet = (pet) => {
+    pet.servicos.push('tosa');
+    console.log(`${pet.nome} está com cabelinho na régua`)
+}
 
-apararUnhasPet(pet)
+const apararUnhasPet = (pet) => {
+    pet.servicos.push('aparar');
+    console.log(`${pet.nome} está de unhas aparadas!`)
+}
 
-
-
-adicionarPet('Garfield', 'gato', 5, 'SRD', '2', 'Jon Arbuckle', '11 93333-3333', true, '');
+adicionarPet('garfield', 'cachoro', 1, 'pastor alemão', 15, 'marina', '81 9876-1234', true, []);
+darBanhoPet(pets[3]);
+tosarPet(pets[3]);
+apararUnhasPet(pets[3]);
 console.log(pets);
 // campanhaVacina();
 // listarPets();
