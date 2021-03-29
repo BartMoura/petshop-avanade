@@ -78,6 +78,13 @@ const apararUnhasPet = (pet) => {
     console.log(`${pet.nome} está de unhas aparadas!`)
 }
 
+const atenderCliente = (pet, servico) => {
+    console.log(`Bem vinde, ${pet.nome}!`);
+    servico(pet);
+    atualizarBanco();
+    console.log('Tchau!');
+}
+
 //adicionarPet('garfield', 'cachoro', 1, 'pastor alemão', 15, 'marina', '81 9876-1234', true, []);
 darBanhoPet(bancoDeDados.pets[0]);
 tosarPet(bancoDeDados.pets[1]);
@@ -87,15 +94,16 @@ apararUnhasPet(bancoDeDados.pets[2]);
 console.log('------------');
 listarPets();
 // vacinarPet(pets[2]);
-adicionarPet({
-    "nome": "Goose",
-    "tipo": "gato",
-    "idade": 2,
-    "raca": "SRD",
-    "peso": 1,
-    "tutor": "Carol Denvers",
-    "contato": "(33) 91111-1111",
-    "vacinado": true,
-    "servicos": []
-});
+// adicionarPet({
+//     "nome": "Goose",
+//     "tipo": "gato",
+//     "idade": 2,
+//     "raca": "SRD",
+//     "peso": 1,
+//     "tutor": "Carol Denvers",
+//     "contato": "(33) 91111-1111",
+//     "vacinado": true,
+//     "servicos": []
+// });
+atenderCliente(bancoDeDados.pets[0], darBanhoPet);
 
