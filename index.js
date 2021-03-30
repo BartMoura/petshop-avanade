@@ -12,11 +12,17 @@ const atualizarBanco = () => {
     fs.writeFileSync('bancoDeDados.json', petsAtualizado, 'utf-8'); // 3 parâmetro: (arquivo, conteúdo, formato)
 }
 
+// const listarPets = () => {
+//     bancoDeDados.pets.forEach(pet => exibirPets(pet));
+// }
+
+
 const listarPets = () => {
 
-    bancoDados.pets.forEach((pet) => {
+    bancoDeDados.pets.forEach((pet) => {
+        let {nome, idade, tipo, raca, vacinado, servicos} = pet;
 
-        console.log(`${pet.nome}, ${pet.idade} anos, ${pet.tipo}, ${pet.raca}, ${(pet.vacinado) ? 'vacinado': 'não vacinado'}`);
+        console.log(`${nome}, ${idade} anos, ${tipo}, ${raca}, ${(vacinado) ? 'vacinado': 'não vacinado'}`);
     
         pet.servicos.forEach((servico) => {
             console.log(`${servico.data} - ${servico.nome}`);
@@ -29,7 +35,8 @@ const vacinarPet = (pet) => {
         console.log(`Ops, ${pet.nome} já está vacinado!`);
     } else {
         pet.vacinado = true;
-        console.log(`${pet.nome} foi vacinado com sucesso!`);
+        console.log(`=>
+        ${pet.nome} foi vacinado com sucesso!`);
     }
 }
 
@@ -134,9 +141,9 @@ const filtrarTutor = (nomeTutor) => {
     });
 }
 
-filtrarTutor('Bart');
-console.log('------------');
-console.log(contatoTutor(bancoDeDados.pets[0]));
+// filtrarTutor('Bart');
+// console.log('------------');
+// console.log(contatoTutor(bancoDeDados.pets[0]));
 // console.log(buscarPet('Thanos'));
 //adicionarPet('garfield', 'cachoro', 1, 'pastor alemão', 15, 'marina', '81 9876-1234', true, []);
 // darBanhoPet(bancoDeDados.pets[0]);
@@ -145,7 +152,7 @@ console.log(contatoTutor(bancoDeDados.pets[0]));
 //console.log(pets);
 // campanhaVacina();
 // console.log('------------');
-// listarPets();
+listarPets();
 // vacinarPet(pets[2]);
 // adicionarPet({
 //     "nome": "Goose",
