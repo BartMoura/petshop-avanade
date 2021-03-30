@@ -69,9 +69,8 @@ const filtraTipoPet = (tipoPet) => {
 }
 
 const clientePremium = (pet) => {
-    let nServicos = bancoDados.pets.reduce((total, pet) => {
-        return total + pet.servicos.length;
-    })
+    let {nome} = pet;
+    let nServicos = pet.servicos.length;
 
     if (nServicos > 5) {
         console.log(`Olá, ${pet.nome}! Você é um cliente especial e ganhou um descontão!`);
@@ -117,19 +116,35 @@ const atenderCliente = (pet, servico) => {
     console.log('Até logo e volte sempre!');
 }
 
+const contatoTutor = (pet) => {
+    let{nome, tutor, contato} = pet;
 
+    return `Tutor: ${tutor}
+    Contato: ${contato}
+    Pet: ${nome}`;
+}
 
+const filtrarTutor = (nomeTutor) => {
+    let petsTutor = bancoDeDados.pets.filter((pet)=>{
+        return pet.tutor == nomeTutor;
+    });
+    console.log(`Pets do tutor ${nomeTutor}:`)
+    petsTutor.forEach((pet) => {
+        console.log(`${pet.nome} - ${pet.tipo}`);
+    });
+}
 
-
-
-console.log(buscarPet('Thanos'));
+filtrarTutor('Bart');
+console.log('------------');
+console.log(contatoTutor(bancoDeDados.pets[0]));
+// console.log(buscarPet('Thanos'));
 //adicionarPet('garfield', 'cachoro', 1, 'pastor alemão', 15, 'marina', '81 9876-1234', true, []);
 // darBanhoPet(bancoDeDados.pets[0]);
 // tosarPet(bancoDeDados.pets[1]);
 // apararUnhasPet(bancoDeDados.pets[2]);
 //console.log(pets);
 // campanhaVacina();
-console.log('------------');
+// console.log('------------');
 // listarPets();
 // vacinarPet(pets[2]);
 // adicionarPet({
@@ -144,6 +159,6 @@ console.log('------------');
 //     "servicos": []
 // });
 // atenderCliente(bancoDeDados.pets[0], darBanhoPet);
-console.log('------------');
-campanhaVacina();
+// console.log('------------');
+// campanhaVacina();
 
